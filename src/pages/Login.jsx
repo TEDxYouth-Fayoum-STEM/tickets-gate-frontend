@@ -9,10 +9,13 @@ export default function Login() {
       "https://tedxfay-tickets-gate.herokuapp.com/login",
       {
         method: "POST",
-        body: {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           user,
           pass,
-        },
+        }),
       }
     );
     const data = await response.json();
@@ -23,8 +26,8 @@ export default function Login() {
 
   return (
     <div>
-      <input type="text" onInput={setUser} />
-      <input type="text" onInput={setPass} />
+      <input type="text" onChange={(e) => setUser(e.target.value)} />
+      <input type="text" onChange={(e) => setPass(e.target.value)} />
       <button onClick={() => login()}>LOGIN</button>
     </div>
   );
