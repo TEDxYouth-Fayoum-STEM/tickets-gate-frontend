@@ -5,13 +5,17 @@ export default function Login() {
   const [pass, setPass] = useState("");
 
   async function login() {
-    const response = await fetch(`${process.env.API_URL}/login`, {
-      method: "POST",
-      body: {
-        user,
-        pass,
-      },
-    });
+    console.log(process.env);
+    const response = await fetch(
+      "https://tedxfay-tickets-gate.herokuapp.com/login",
+      {
+        method: "POST",
+        body: {
+          user,
+          pass,
+        },
+      }
+    );
     const data = await response.json();
     if (!data || !data.token) return alert("LOGIN FAILED!");
     localStorage.setItem("token", data.token);

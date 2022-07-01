@@ -7,13 +7,16 @@ export default function Ticket() {
   const [searchParams] = useSearchParams();
 
   async function load() {
-    const response = await fetch(`${process.env.API_URL}/check`, {
-      method: "POST",
-      body: {
-        token: localStorage.getItem("token"),
-        ticket: searchParams.get("ticket"),
-      },
-    });
+    const response = await fetch(
+      "https://tedxfay-tickets-gate.herokuapp.com/check",
+      {
+        method: "POST",
+        body: {
+          token: localStorage.getItem("token"),
+          ticket: searchParams.get("ticket"),
+        },
+      }
+    );
     const data = await response.json();
     if (response.status !== 200) {
       return alert("PLEASE LOGIN!");
