@@ -5,7 +5,6 @@ export default function Login() {
   const [pass, setPass] = useState("");
 
   async function login() {
-    console.log(process.env);
     const response = await fetch(
       "https://tedxfay-tickets-gate.herokuapp.com/login",
       {
