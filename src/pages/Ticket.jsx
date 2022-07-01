@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function Ticket() {
   const [state, setState] = useState(null);
 
-  const [searchParams] = useSearchParams();
+  const { ticket } = useParams();
 
   async function load() {
     const response = await fetch(
@@ -13,7 +13,7 @@ export default function Ticket() {
         method: "POST",
         body: {
           token: localStorage.getItem("token"),
-          ticket: searchParams.get("ticket"),
+          ticket: ticket,
         },
       }
     );
