@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export default function Ticket() {
-  const { state, setState } = useState(null);
+  const [state, setState] = useState(null);
 
   const [searchParams] = useSearchParams();
 

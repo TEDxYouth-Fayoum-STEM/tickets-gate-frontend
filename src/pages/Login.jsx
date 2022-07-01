@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export default function Login() {
-  const { user, setUser } = useState("");
-  const { pass, setPass } = useState("");
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
 
   async function login() {
     const response = await fetch(`${process.env.API_URL}/login`, {
