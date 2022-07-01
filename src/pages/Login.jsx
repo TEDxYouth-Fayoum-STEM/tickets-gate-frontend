@@ -15,13 +15,14 @@ export default function Login() {
     const data = await response.json();
     if (!data || !data.token) return alert("LOGIN FAILED!");
     localStorage.setItem("token", data.token);
+    alert("LOGINED!");
   }
 
   return (
     <div>
       <input type="text" onInput={setUser} />
       <input type="text" onInput={setPass} />
-      <button onClick={login}>LOGIN</button>
+      <button onClick={() => login()}>LOGIN</button>
     </div>
   );
 }
